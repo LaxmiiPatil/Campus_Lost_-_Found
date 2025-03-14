@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campus Lost and Found</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background: url('background.jpg') no-repeat center center fixed;
+            background-size: cover;
+            font-family: 'Poppins', sans-serif;
+            color: #fff;
+        }
+        .navbar {
+            background: rgba(0, 0, 0, 0.8);
+        }
+        .container {
+            margin-top: 100px;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.6);
+            padding: 30px;
+            border-radius: 15px;
+        }
+        .btn-lg {
+            width: 100%;
+            padding: 15px;
+            font-size: 18px;
+            margin-top: 15px;
+        }
+       /* footer {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 15px;
+            bottom: 0;
+        }*/
+        footer {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            text-align: center;
+            color: white;
+        }
+        
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand" href="index.html"><i class="fas fa-search-location"></i> Lost & Found</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="report.html">Report Item</a></li>
+                <li class="nav-item"><a class="nav-link" href="search.html">Search Items</a></li>
+                <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
+                <li class="nav-item"><a class="nav-link" href="about_us.html">About Us</a></li>
+                <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <h2>Welcome to Campus Lost and Found</h2>
+        <p>Helping students find their lost items quickly and efficiently.</p>
+        
+        <div class="row">
+            <div class="col-md-4">
+                <a href="report.html" class="btn btn-primary btn-lg"><i class="fas fa-exclamation-circle"></i> Report Lost/Found Item</a>
+            </div>
+            <div class="col-md-4">
+                <a href="search.html" class="btn btn-success btn-lg"><i class="fas fa-search"></i> Search for Items</a>
+            </div>
+            <div class="col-md-4">
+                <a href="admin.html" class="btn btn-warning btn-lg"><i class="fas fa-user-shield"></i> Admin Dashboard</a>
+            </div>
+        </div>
+    </div>
+    
+    <footer class="text-center text-white mt-5">
+        <p>&copy; 2025 Campus Lost & Found | All rights reserved.</p>
+    </footer>
+    
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Lost & Found Items</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background: url('background.jpg') no-repeat center center fixed;
+            background-size: cover;
+            font-family: 'Poppins', sans-serif;
+            color: #fff;
+        }
+        .container {
+            margin-top: 50px;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 30px;
+            border-radius: 15px;
+        }
+        .item-list {
+            list-style: none;
+            padding: 0;
+        }
+        .item-list li {
+            background: #fff;
+            color: black;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        footer {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 15px;
+            text-align: center;
+            color: white;
+            margin-top: 50px;
+            position: absolute;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="index.html"><i class="fas fa-search-location"></i> Lost & Found</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="report.html">Report Item</a></li>
+                <li class="nav-item"><a class="nav-link" href="search.html">Search Items</a></li>
+                <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
+                <li class="nav-item"><a class="nav-link" href="about_us.html">About Us</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <h2 class="text-center">Search for Lost & Found Items</h2>
+        <input type="text" class="form-control" id="searchInput" placeholder="Search by item name...">
+        <ul class="item-list" id="itemList"></ul>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 Campus Lost & Found | All rights reserved.</p>
+    </footer>
+    
+    <script>
+        const items = [
+            { id: 'wallet', name: 'Lost Wallet' },
+            { id: 'keys', name: 'Lost Keys' },
+            { id: 'phone', name: 'Lost Phone' }
+        ];
+
+        function displayItems(filteredItems) {
+            const itemList = document.getElementById('itemList');
+            itemList.innerHTML = '';
+            filteredItems.forEach(item => {
+                const li = document.createElement('li');
+                li.innerHTML = `${item.name} <a href="item_details.html?item=${item.id}" class="btn btn-sm btn-info">View Details</a>`;
+                itemList.appendChild(li);
+            });
+        }
+
+        document.getElementById('searchInput').addEventListener('keyup', function() {
+            let filter = this.value.toLowerCase();
+            let filteredItems = items.filter(item => item.name.toLowerCase().includes(filter));
+            displayItems(filteredItems);
+        });
+        
+        displayItems(items);
+    </script>
+</body>
+</html>

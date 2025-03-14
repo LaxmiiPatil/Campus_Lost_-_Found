@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Item Details</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background: url('background.jpg') no-repeat center center fixed;
+            background-size: cover;
+            font-family: 'Poppins', sans-serif;
+            color: #fff;
+        }
+        .container {
+            margin-top: 50px;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 30px;
+            border-radius: 15px;
+        }
+        .item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            display: none;
+        }
+        .item img {
+            width: 100%;
+            max-height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+        footer {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 15px;
+            text-align: center;
+            color: white;
+            margin-top: 50px;
+            position: absolute;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="index.html"><i class="fas fa-search-location"></i> Lost & Found</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="report.html">Report Item</a></li>
+                <li class="nav-item"><a class="nav-link" href="search.html">Search Items</a></li>
+                <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
+                <li class="nav-item"><a class="nav-link" href="about_us.html">About Us</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <h2 class="text-center">Item Details</h2>
+        
+        <div class="item" id="itemDetails">
+            <img id="itemImage" src="" alt="Item Image">
+            <h4 id="itemName"></h4>
+            <p><strong>Description:</strong> <span id="itemDescription"></span></p>
+            <p><strong>Location Found:</strong> <span id="itemLocation"></span></p>
+            <p><strong>Date Reported:</strong> <span id="itemDate"></span></p>
+            <p><strong>Contact:</strong> <a id="itemContact" href=""></a></p>
+            <button class="btn btn-primary btn-block" onclick="alert('Claim request sent successfully!')">Claim Item</button>
+        </div>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 Campus Lost & Found | All rights reserved.</p>
+    </footer>
+
+    <script>
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            const items = {
+                "wallet": {
+                    name: "Lost Wallet",
+                    description: "Black leather wallet with a university ID and credit cards.",
+                    location: "College Library",
+                    date: "March 12, 2025",
+                    contact: "founder@example.com",
+                    image: "wallet.jpg"
+                },
+                "phone": {
+                    name: "Lost Phone",
+                    description: "Blue Samsung phone with a cracked screen.",
+                    location: "Cafeteria",
+                    date: "March 10, 2025",
+                    contact: "founder@example.com",
+                    image: "phone.jpg"
+                },
+                "keys": {
+                    name: "Lost Keys",
+                    description: "A set of house keys with a red keychain.",
+                    location: "Classroom B203",
+                    date: "March 9, 2025",
+                    contact: "founder@example.com",
+                    image: "keys.jpg"
+                }
+            };
+
+            const itemId = getQueryParam("item");
+            if (itemId && items[itemId]) {
+                const item = items[itemId];
+                document.getElementById("itemName").textContent = item.name;
+                document.getElementById("itemDescription").textContent = item.description;
+                document.getElementById("itemLocation").textContent = item.location;
+                document.getElementById("itemDate").textContent = item.date;
+                document.getElementById("itemContact").textContent = item.contact;
+                document.getElementById("itemContact").href = `mailto:${item.contact}`;
+                document.getElementById("itemImage").src = item.image;
+                document.getElementById("itemDetails").style.display = "block";
+            }
+        });
+    </script>
+</body>
+</html>
